@@ -25,7 +25,8 @@ jobs:
       - name: Installing plugin
         uses: serverless/github-action@3
         with:
-          args "serverless plugin install --name serverless-iam-roles-per-function && serverless deploy --stage production"
+          args: -c "serverless plugin install --name serverless-iam-roles-per-function && serverless deploy --stage production"
+          endpoint: /bin/sh
         env:
            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
